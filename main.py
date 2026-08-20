@@ -11,7 +11,6 @@ import os
 from dotenv import load_dotenv
 from ai.brain import create_agent_graph
 from contextlib import asynccontextmanager
-from fastapi.middleware.cors import CORSMiddleware
 load_dotenv()
 
 checkpointer = None
@@ -36,13 +35,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
 
 app.include_router(auth_router, prefix="/users", tags=['Authentication'])
 app.include_router(user_router, prefix="/users", tags=["User Handle"])
