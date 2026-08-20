@@ -1,0 +1,75 @@
+2026-08-11 17:15:57,543 -ERROR -Unexpected error occour on /users/register-user: 'NoneType' object has no attribute 'hashed_password'
+2026-08-11 17:17:56,848 -ERROR -Unexpected error occour on /users/register-user: 'UserCreate' object has no attribute 'hashed_password'
+2026-08-11 17:22:07,049 -ERROR -Unexpected error occour on /users/register-user: 1 validation error:
+  {'type': 'missing', 'loc': ('response', 'password'), 'msg': 'Field required', 'input': <db.models.User object at 0x00000184B53FA3C0>}
+
+  File "C:\Users\lenovo\OneDrive\Desktop\AI AGENT PROJECT\routers\auth.py", line 13, in register_user
+    POST /users/register-user
+2026-08-11 17:25:18,661 -ERROR - HTTPException error occur on /users/register-user : Username already exists
+2026-08-11 22:20:18,324 -ERROR -Unexpected error occour on /users/log-in: 'datetime.timezone' object is not callable
+2026-08-11 22:33:39,111 -ERROR -Unexpected error occour on /ai/ask-ai: encode() got an unexpected keyword argument 'algorithms'. Did you mean 'algorithm'?
+2026-08-12 17:25:03,999 -ERROR -Unexpected error occour on /ai/ask-ai: 'HTTPAuthorizationCredentials' object has no attribute 'username'
+2026-08-12 17:29:12,732 -ERROR - HTTPException error occur on /ai/ask-ai : ERROR:<class 'str'>
+2026-08-12 17:33:18,186 -ERROR - HTTPException error occur on /ai/ask-ai : ERROR:'role' is an invalid keyword argument for ChatMessage
+2026-08-12 17:36:48,055 -ERROR - HTTPException error occur on /ai/ask-ai : Not authenticated
+2026-08-12 17:37:02,824 -ERROR - HTTPException error occur on /ai/ask-ai : ERROR:'content' is an invalid keyword argument for ChatMessage
+2026-08-12 17:38:32,677 -ERROR - HTTPException error occur on /ai/ask-ai : ERROR:(psycopg2.errors.UndefinedColumn) column "role" of relation "chat-history" does not exist
+LINE 1: INSERT INTO "chat-history" (user_id, role, content, question...
+                                             ^
+
+[SQL: INSERT INTO "chat-history" (user_id, role, content, question, answer, created_at) VALUES (%(user_id)s, %(role)s, %(content)s, %(question)s, %(answer)s, now()) RETURNING "chat-history".id, "chat-history".created_at]
+[parameters: {'user_id': 1, 'role': 'user', 'content': "what's 2 + 2?", 'question': None, 'answer': None}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-08-12 17:42:28,371 -ERROR - HTTPException error occur on /ai/ask-ai : ERROR:(psycopg2.errors.NotNullViolation) null value in column "question" of relation "chat-history" violates not-null constraint
+DETAIL:  Failing row contains (1, 1, user, what's 2 + 2?, null, null, 2026-08-12 11:57:28.354843).
+
+[SQL: INSERT INTO "chat-history" (user_id, role, content, question, answer, created_at) VALUES (%(user_id)s, %(role)s, %(content)s, %(question)s, %(answer)s, now()) RETURNING "chat-history".id, "chat-history".created_at]
+[parameters: {'user_id': 1, 'role': 'user', 'content': "what's 2 + 2?", 'question': None, 'answer': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-08-12 17:46:51,129 -ERROR - HTTPException error occur on /ai/ask-ai : ERROR:(psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: INSERT INTO "chat-history" (user_id, role, content, created_at) VALUES (%(user_id)s, %(role)s, %(content)s, now()) RETURNING "chat-history".id, "chat-history".created_at]
+[parameters: {'user_id': 1, 'role': 'assistant', 'content': [{'type': 'text', 'text': '2 + 2 = 4', 'extras': {'signature': 'El4KXAERTTIPzFl2WT2ZJ1sIOdLptLJ2zCaCZ8zcO8izgygfOjw99QPiIQkAEA/ubxPXH/nyfzHSbp3MxRsf17ywtSKp4wKTVcKf/lQ1MdTFV6vWbnSc8luIjxFVvKNh'}}]}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-08-16 00:20:25,639 -ERROR -Unexpected error occour on /ai/ai/ask-ai: 'State' object has no attribute 'agent'
+2026-08-16 00:26:29,474 -ERROR - HTTPException error occur on /users/me : User Token is expired
+2026-08-16 00:27:57,091 -ERROR -Unexpected error occour on /ai/ai/ask-ai: 'State' object has no attribute 'agent'
+2026-08-16 23:25:52,291 -ERROR - HTTPException error occur on /ai/ask-ai : An error occurred while processing the request: Synchronous calls to AsyncPostgresSaver are only allowed from a different thread. From the main thread, use the async interface. For example, use `await checkpointer.aget_tuple(...)` or `await graph.ainvoke(...)`.
+2026-08-16 23:29:17,769 -ERROR - HTTPException error occur on /ai/ask-ai : An error occurred while processing the request: 'thread_id'
+2026-08-16 23:36:44,963 -ERROR - HTTPException error occur on /ai/ask-ai : An error occurred while processing the request: 'thread_id'
+2026-08-16 23:45:27,680 -ERROR - HTTPException error occur on /ai/ask-ai : An error occurred while processing the request: 'thread_id'
+2026-08-17 23:25:16,617 -ERROR - HTTPException error occur on /ai/ask-ai : column "checkpoint" does not exist
+LINE 4:     checkpoint,
+            ^
+HINT:  Perhaps you meant to reference the column "checkpoints.chekpoint".
+2026-08-17 23:40:48,835 -ERROR - HTTPException error occur on /ai/ask-ai : column "checkpoint_ns" does not exist
+LINE 5:     checkpoint_ns,
+            ^
+HINT:  Perhaps you meant to reference the column "checkpoints.checkpoint_id".
+2026-08-18 00:00:06,076 -ERROR - HTTPException error occur on /ai/ask-ai : column "parent_checkpoint_id" does not exist
+LINE 7:     parent_checkpoint_id,
+            ^
+2026-08-18 17:47:35,120 -ERROR - HTTPException error occur on /ai/ask-ai : list index out of range
+2026-08-18 17:48:37,727 -ERROR - HTTPException error occur on /ai/ask-ai : Not authenticated
+2026-08-18 17:48:51,842 -ERROR - HTTPException error occur on /ai/ask-ai : 'list' object has no attribute 'get'
+2026-08-18 17:54:49,161 -ERROR - HTTPException error occur on /ai/ask-ai : 'list' object has no attribute 'get'
+2026-08-18 18:50:11,914 -ERROR - HTTPException error occur on /chat/chat-history : (psycopg2.errors.UndefinedFunction) operator does not exist: text == unknown
+LINE 1: DELETE FROM checkpoints WHERE thread_id == 'user_1'
+                                                ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: DELETE FROM checkpoints WHERE thread_id == %(thread_id)s]
+[parameters: {'thread_id': 'user_1'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-08-19 22:24:55,176 -ERROR - HTTPException error occur on /ai/ask-ai : search_web() got an unexpected keyword argument 'max_result'. Did you mean 'max_results'?
+2026-08-19 22:28:22,742 -ERROR -Unexpected error occour on /ai/upload-pdf: [Errno 13] Permission denied: 'C:/.pdfxwofskk0'
+2026-08-20 23:10:33,486 -ERROR - HTTPException error occur on /chat/chat-history : Not authenticated
+2026-08-20 23:11:53,483 -ERROR -Unexpected error occour on /ai/upload-pdf: [Errno 13] Permission denied: 'C:/.pdfquzgbl1y'
+2026-08-20 23:13:11,606 -ERROR -Unexpected error occour on /ai/upload-pdf: 'str' object has no attribute 'write'
+2026-08-20 23:17:18,224 -ERROR - HTTPException error occur on /ai/upload-pdf : Error:'temp_file' is an invalid keyword argument for PDFDocument
+2026-08-20 23:21:03,954 -ERROR - HTTPException error occur on /ai/upload-pdf : Error:(psycopg2.errors.UndefinedColumn) column "temp_file" of relation "pdf-files" does not exist
+LINE 1: INSERT INTO "pdf-files" (user_id, filename, temp_file, uploa...
+                                                    ^
+
+[SQL: INSERT INTO "pdf-files" (user_id, filename, temp_file, uploaded_at, content, embedding) VALUES (%(user_id)s, %(filename)s, %(temp_file)s, now(), %(content)s, %(embedding)s) RETURNING "pdf-files".id, "pdf-files".uploaded_at]
+[parameters: {'user_id': 1, 'filename': 'Nepal.pdf', 'temp_file': 'C:\\Users\\lenovo\\AppData\\Local\\Temp\\.pdfd1j428ha', 'content': "Nepal is a landlocked country in  South Asia, located between India and China. It covers about \n147,000 square kilometers and has three major geogra ... (792 characters truncated) ... ficant hydropower potential but \nfaces challenges such as limited infrastructure, unemployment, natural disasters, and dependance on imported goods.", 'embedding': None}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
