@@ -11,7 +11,7 @@ class User(Base):
     username = Column(String, unique=True, nullable=False)
     hashed_password = Column(String, nullable=False)
     is_active = Column(Boolean)
-    is_created = Column(DateTime, default=func.now())
+    created_at = Column(DateTime, default=func.now())
 
     documents = relationship('PDFDocument', back_populates='users', cascade="all, delete-orphan")
     messages = relationship('ChatMessage', back_populates='users', cascade="all, delete-orphan")

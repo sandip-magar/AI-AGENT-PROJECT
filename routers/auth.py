@@ -5,6 +5,7 @@ from db.models import User
 from db.schemas import UserCreate, Token, UserResponse
 from core.security import hash_password, verify_password, create_new_access_token, decode_token
 from sqlalchemy.orm import Session
+from sqlalchemy import func
 
 router = APIRouter()
 oauth_schema = HTTPBearer()
@@ -23,7 +24,7 @@ async def register_user(user: UserCreate, db: Session = Depends(get_db)):
     new_user = User(
         username = user.username,
         hashed_password= hashed_password,
-        is_active = user.is_active
+        is_active = user.is_active,
     )
     db.add(new_user)
     db.commit()

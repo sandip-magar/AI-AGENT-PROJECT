@@ -73,3 +73,20 @@ LINE 1: INSERT INTO "pdf-files" (user_id, filename, temp_file, uploa...
 [SQL: INSERT INTO "pdf-files" (user_id, filename, temp_file, uploaded_at, content, embedding) VALUES (%(user_id)s, %(filename)s, %(temp_file)s, now(), %(content)s, %(embedding)s) RETURNING "pdf-files".id, "pdf-files".uploaded_at]
 [parameters: {'user_id': 1, 'filename': 'Nepal.pdf', 'temp_file': 'C:\\Users\\lenovo\\AppData\\Local\\Temp\\.pdfd1j428ha', 'content': "Nepal is a landlocked country in  South Asia, located between India and China. It covers about \n147,000 square kilometers and has three major geogra ... (792 characters truncated) ... ficant hydropower potential but \nfaces challenges such as limited infrastructure, unemployment, natural disasters, and dependance on imported goods.", 'embedding': None}]
 (Background on this error at: https://sqlalche.me/e/20/f405)
+2026-08-23 13:47:20,160 -ERROR -Unexpected error occour on /users/register-user: 1 validation error:
+  {'type': 'missing', 'loc': ('response', 'created_at'), 'msg': 'Field required', 'input': <db.models.User object at 0x0000023EB65B82F0>}
+
+  File "C:\Users\lenovo\OneDrive\Desktop\AI AGENT PROJECT\routers\auth.py", line 13, in register_user
+    POST /users/register-user
+2026-08-23 13:55:50,911 -ERROR -Unexpected error occour on /users/register-user: (psycopg2.errors.UndefinedColumn) column users.created_at does not exist
+LINE 1: ...hed_password, users.is_active AS users_is_active, users.crea...
+                                                             ^
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.hashed_password AS users_hashed_password, users.is_active AS users_is_active, users.created_at AS users_created_at 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'username_1': 'sandip', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-08-23 13:59:19,422 -ERROR - HTTPException error occur on /users/register-user : Username already exists
+2026-08-23 14:01:05,021 -ERROR - HTTPException error occur on /users/log-in : Wrong Password or username
