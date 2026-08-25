@@ -56,6 +56,7 @@ ensemble_retriever = vectorstore.as_retriever(search_kwargs={"k":3})
 def query_pdf_rag(query: str) -> Dict[str, Any]:
     """Searches the user's uploaded PDF doucments to answer specific questions about them."""
     try:
+        global ensemble_retriever
         docs = ensemble_retriever.invoke(query)
         formatted_chunks = [
             {
