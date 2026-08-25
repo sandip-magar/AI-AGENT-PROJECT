@@ -32,7 +32,7 @@ async def ask_ai(
             )
         print("FULL CONVERSATION HISTORY:")
         for i, msg in enumerate(final_state["messages"]):
-            print(f"/n[Message:{i}] Type: {type(msg).__name__}")
+            print(f"\n[Message:{i}] Type: {type(msg).__name__}")
             print(f"Content: {msg.content}")
             if hasattr(msg, "tool_calls") and msg.tool_calls:
                 print(f" Tool calls: {msg.tool_calls}")

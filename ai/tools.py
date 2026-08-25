@@ -4,6 +4,7 @@ from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
 import math
+from ai.brain import vectorstore
 
 class MathInput(BaseModel):
     expression: str = Field(description="A mathmatical expression to evaluate, e.g '(4250 * 0.18), '(100-15) /5'.")
@@ -49,23 +50,12 @@ class PDFSearchInput(BaseModel):
     query: str = Field(description="Specific question or keyword to search within uploaded PDFs.")
 
 # Global retriever placeholder
-ensemble_retriever = None
+ensemble_retriever = vectorstore.as_retriever(search_kwargs={"k":3})
 
 @tool(args_schema=PDFSearchInput)
 def query_pdf_rag(query: str) -> Dict[str, Any]:
-    """Searches uploaded PDF manuals, policy documents, and knowledge base files."""
+    """Searches the user's uploaded PDF doucments to answer specific questions about them."""
     try:
-        global ensemble_retriever
-        if ensemble_retriever is None:
-            return {
-                "status": "success",
-                "retrieved_chunks": [{
-                    "source": "Company_Policy.pdf",
-                    "page": 4,
-                    "content": "Refunds are processed within 30 days of purchase with receipt."
-                }]
-            }
-
         docs = ensemble_retriever.invoke(query)
         formatted_chunks = [
             {
