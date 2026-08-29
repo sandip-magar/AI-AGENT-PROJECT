@@ -45,11 +45,18 @@ def retrieve_documents(state: AgentState):
 
     system_messages = SystemMessage(content="""
     You are a helpful AI assistant.
-    Answer the user question based on the following PDF content.
+
+    IMPORTANT RULES:
+    1. Give DIRECT and CONCISE answers. Don't explain unless asked.
+    2. For simple questions (math, facts, definition), just give the answer.
+    3. PDF priority (HIGHEST). Always check the 'PDF Context' below FIRST. if the answer is in the PDF. DO NOT USE web search.
+    4. ONLY use 'web_search' for real-time news, weather, or general knowledge NOT in the PDF.
+    5. Only provide detailed explanations if the user explicity asks "explain", "how", or "why".
+
+    PDF Context:
     {context}
     
-    If the answer is in the PDF above, answer it directly.
-    ONLY user web search if the PDF doesn't contain the answer of the user asks for real-time information.
+    User Question: {last_message,content}
     """)
 
     return {"messages": [system_messages]}

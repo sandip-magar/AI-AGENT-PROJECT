@@ -25,7 +25,6 @@ async def ask_ai(
     inputs = {"messages": [HumanMessage(content=payload.question)]}
 
     try:
-        print("Testing with hardcoded thread_id")
         final_state = await graph.ainvoke(
             inputs,
             config=config

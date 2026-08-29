@@ -94,7 +94,7 @@ async def delete_pdf(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-
+    #delete from the database 
     vectorstore.delete(filter={"source":filename})
     document = db.query(PDFDocument).filter(PDFDocument.id == document_id).first()
     if not document:

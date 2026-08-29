@@ -4,7 +4,6 @@ from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
 import math
-from ai.brain import vectorstore
 
 class MathInput(BaseModel):
     expression: str = Field(description="A mathmatical expression to evaluate, e.g '(4250 * 0.18), '(100-15) /5'.")
@@ -12,7 +11,8 @@ class MathInput(BaseModel):
 @tool(args_schema=MathInput)
 def calculate_math(expression: str) -> Dict[str, Any]:
     """
-    Evaluates exact mathmatical, financial, or statistical expression."""
+    Evaluates exact mathmatical, financial, or statistical expression.
+    Returns ONLY the numerical result. No explanation"""
     try:
         allowed_names= {
             "abs": abs, "round": round, "min": min, "max": max,
@@ -31,7 +31,9 @@ class WebSearchInput(BaseModel):
 
 @tool(args_schema=WebSearchInput)
 def search_web(query: str, max_results: int = 3) -> Dict[str, Any]:
-    """Searches the live internet to up-to-date information, real-time news, or external context."""
+    """Searches the live internet to up-to-date information, real-time news, or external context.
+    USE ONLY FOR: Current events, news, weather, or facts NOT found in the uploaded PDF's.
+    DO NOT USE FOR: Math or questions about uploaded documents."""
 
     try:
         from duckduckgo_search import DDGS
@@ -49,14 +51,12 @@ def search_web(query: str, max_results: int = 3) -> Dict[str, Any]:
 class PDFSearchInput(BaseModel):
     query: str = Field(description="Specific question or keyword to search within uploaded PDFs.")
 
-# Global retriever placeholder
-ensemble_retriever = vectorstore.as_retriever(search_kwargs={"k":3})
-
 @tool(args_schema=PDFSearchInput)
 def query_pdf_rag(query: str) -> Dict[str, Any]:
     """Searches the user's uploaded PDF doucments to answer specific questions about them."""
     try:
-        global ensemble_retriever
+        from ai.brain import vectorstore
+        ensemble_retriever = vectorstore.as_retriever(search_kwargs={"k":3})
         docs = ensemble_retriever.invoke(query)
         formatted_chunks = [
             {
