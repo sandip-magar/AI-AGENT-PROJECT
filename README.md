@@ -32,7 +32,8 @@ The agent uses **LangGraph's StateGraph** architecture:
 | Setting | Value | Description |
 |-----|-----|-----------|
 | **Framework** | LangGraph | Graph-based agent orchestration |
-| **LLM Model** | 'gemini-pro' | Google's Gemini for reasoning |
+| **LLM Model** | 'gemini-3.5-flash-lite' | Google's Gemini for reasoning |
+| **Security** | HS256 + JWT | Token-based authentication |
 | **Checkpoint Backend** | PostgreSQL | Persistent state storage |
 | **API Framework** | FastAPI | High-performance async API |
 | **Memory Type** | Persistent | Survives server restarts |
@@ -51,8 +52,8 @@ The agent uses **LangGraph's StateGraph** architecture:
 
 ## prerequisites
 
--[Docker Desktop](https://www.docker.com/products/docker-desktop/)
--[Git](https://git-scm.com/)
+-[Docker Desktop]*(https://www.docker.com/products/docker-desktop/)*
+-[Git]*(https://git-scm.com/)*
 -Google API Key (for Gemini)
 
 --
@@ -67,19 +68,36 @@ cd ai_agent_suppport
 
 ### 2. Configure Environment Variables 
 
+**Step A: Generate a Secure Secret Key**
+Run this command in your terminal 
+```bash
+python -c "import secrets; print(secrets.token_urlsafe(32))"
+```
+
+*Copy the long string that gets printed out.*
+
+**Step B: Create the '.env' File**
 Create a '.env' file in the root directory:
 
 ```env
 # Database Configuration 
 DATABASE_URL=postgresql://admin:YOUR_PASSWORD@db:5432/ai_agent_db
-
+ 
 #AI Configuration 
 GOOGLE_API_KEY=your_google_api_key_here
 LLM_MODEL_NAME=gemini-3.5-flash-lite
+EMBEDDING_MODEL_NAME=gemini-embedding-001
+
+#Security Configurtion (for JWT authentication)
+SECRET_KEY=paste_the_generated_key_here
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTE=1440
  
 #Server Configuration 
 HOST=0.0.0.0
 PORT=8000
+
+*(Replace 'your_google_api_key_here' with your real Google AI Studio API Key, and paste your generated key into 'SECRET_KEY')*
 ```
 
 ### 3. Run With Docker
