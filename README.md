@@ -52,9 +52,9 @@ The agent uses **LangGraph's StateGraph** architecture:
 
 ## prerequisites
 
--[Docker Desktop]*(https://www.docker.com/products/docker-desktop/)*
--[Git]*(https://git-scm.com/)*
--Google API Key (for Gemini)
+- [Docker Desktop]*(https://www.docker.com/products/docker-desktop/)*
+- [Git]*(https://git-scm.com/)*
+- Google API Key (for Gemini)
 
 --
 
