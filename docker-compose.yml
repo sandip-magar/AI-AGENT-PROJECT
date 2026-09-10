@@ -5,9 +5,9 @@ services:
     image: pgvector/pgvector:pg16
     container_name: ai_agent_db
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: securepassword123
-      POSTGRES_DB: ai_agent_db
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5433:5432"
     volumes:
@@ -28,7 +28,7 @@ services:
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgresql://admin:securepassword123@db:5432/ai_agent_db
+      DATABASE_URL: postgresql://admin:YOUR_PASSWORD@db:5432/ai_agent_db
     depends_on:
       db:
         condition: service_healthy
