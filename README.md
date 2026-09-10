@@ -107,7 +107,7 @@ docker-compose up --build -d
 
 ### 4. Access the API 
 Open your browser:
-**http://localhost:8000/docs**
+**http://localhost:8001/docs**
 
 --
 

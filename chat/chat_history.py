@@ -20,7 +20,7 @@ async def get_user_history(
     return chat_message
 
 
-@router.delete("/chat-history")
+@router.delete("/chat-history") 
 async def delete_chat_history(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
