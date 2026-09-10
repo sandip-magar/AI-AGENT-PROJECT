@@ -56,7 +56,7 @@ def retrieve_documents(state: AgentState):
     PDF Context:
     {context}
     
-    User Question: {last_message,content}
+    User Question: {last_message.content}
     """)
 
     return {"messages": [system_messages]}

@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: securepassword123
       POSTGRES_DB: ai_agent_db
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -24,13 +24,14 @@ services:
     build: .
     container_name: ai_agent_api
     ports:
-      - "8000:8000"
+      - "8001:8000"
     env_file:
       - .env
     environment:
-      DATABASE_URL=postgresql://admin:securepassword123@db:5432d/ai_agent_db
+      DATABASE_URL: postgresql://admin:securepassword123@db:5432/ai_agent_db
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     restart: on-failure
          
 volumes:
