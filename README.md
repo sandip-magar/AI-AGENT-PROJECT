@@ -2,9 +2,9 @@
 
 An intelligent, stateful AI agent that can execute tools, maintain conversation memory, and perform real-time web searches, Built with FastAPI, LangGraph, PostgreSQL, and Docker.
 
-[![FastAPI]*(https://img.shields.io/badge/FastAPI=0.104.1-green.svg)*] *(https://fastapi.tiangolo.com)
-[![Python]*(https://img.shields.io/badge/python-3.11-blue.svg)*] *(https://www.python.org/downloads)
-[![Docker]*(https://img.shields.io/badge/docker-compose-3.8-blue.svg)*] *(https://docs.docker.com/compose/)
+- [![FastAPI]*(https://img.shields.io/badge/FastAPI=0.104.1-green.svg)*] *(https://fastapi.tiangolo.com)
+- [![Python]*(https://img.shields.io/badge/python-3.11-blue.svg)*] *(https://www.python.org/downloads)
+- [![Docker]*(https://img.shields.io/badge/docker-compose-3.8-blue.svg)*] *(https://docs.docker.com/compose/)
 
 ## Features
 
@@ -16,7 +16,7 @@ An intelligent, stateful AI agent that can execute tools, maintain conversation 
 - **Dockerized**: Production-ready containerization with docker-compose 
 - **Tested**: Comprehensive pytest test suite for tools and API endpoints 
 
-##Architecture 
+## Architecture 
 
 This project implements a **RAG(Retrieval-Augmented Generation)** architecture with:
 - **FastAPI** for high-performance async API endpoints
@@ -24,50 +24,58 @@ This project implements a **RAG(Retrieval-Augmented Generation)** architecture w
 - **PostgreSQL + pgvector** for both relational data and vector embeddings 
 - **Gemini API** for LLM inference and embeddings
 
+```markdown
 ## Project Structure 
+```
 
-ai-agent-project
-|---ai/        #AI Agent Core
-|  |---brain.py    #LangGraph agent creation  
-|  |---tools.py    #Custom tools wiwth pydantic validation 
-|  |---ask_question.py   #Question handling logic
-|  |---file_upload.py    #PDF processing & chunking 
-|---chat/      #Chat History 
-|  |---chat_history.py   #Get/delete conversation history 
-|---core/      #Configuration & security 
-|  |---config.py       #Enivornment varibales 
-|  |---security.py     #JWT, password hashing 
-|  |---extensions.py   #Logging & middleware
-|---db/        #Database Layer 
-|  |---database.py      #Database connection & session 
-|  |---models.py        #SQLAlchemy models 
-|  |---schemas.py       #Pydantic schemas 
-|---routers    #API Endpoints 
-|  |---auth.py          #Register, login, auth routes 
-|  |---users.py         #User CRUD operations 
-|---docker_compose.yml  #Docker orchestration
-|---Dockerfile          #Python 3.11 environment 
-|---main.py             #FastAPI app with lifespan 
----requirements.txt     #Dependencies
-|---test_tools.py       #Pytest unit tests 
-|---.env.example        #Environment 
+ai-agent-project/
+├── ai/                          # AI Agent Core Logic
+│   ├── init.py
+│   ├── brain.py                 # LangGraph agent creation
+│   ├── tools.py                 # Custom tools with Pydantic validation
+│   ├── ask_question.py          # Question handling logic
+│   └── file_upload.py           # PDF processing & chunking
+├── chat/                        # Chat History Management
+│   ├── init.py
+│   └── chat_history.py          # Get/delete conversation history
+── core/                        # Configuration & Security
+│   ├── init.py
+│   ├── config.py                # Environment variables
+│   ├── security.py              # JWT, password hashing
+│   └── extensions.py            # Logging & middleware
+├── db/                          # Database Layer
+│   ├── init.py
+│   ├── database.py              # Database connection & session
+│   ├── models.py                # SQLAlchemy models
+│   └── schemas.py               # Pydantic schemas
+── routers/                     # API Endpoints
+│   ├── init.py
+│   ├── auth.py                  # Register, login, auth routes
+│   └── users.py                 # User CRUD operations
+├── docker-compose.yml           # Docker orchestration
+├── Dockerfile                   # Python 3.11 environment
+├── init.sql                     # Database initialization
+├── main.py                      # FastAPI app with lifespan
+├── requirements.txt             # Python dependencies
+├── test_tools.py                # Pytest unit tests
+├── .env.example                 # Environment template
+├── .gitignore                   # Git ignore rules
+└── README.md                    # Project documentation
 
 ## Quick Start 
 
 ### Prerequisites 
 Before you begin, ensure you have the following installed on your computer.
 
-* **[Docker & Docker Compose](https://docker.com/products/docker-desktop/)** -Required to run the database and API containers.
-* **[GitHub](https://git-scm.com/downloads)** - To clone the repository 
-* **[Google Gemini API Key](https://aistudio.google.com/app/apikey)** - Required for the AI agent to think and generate embeddings.
+* **[Docker & Docker Compose]*(https://docker.com/products/docker-desktop/)*** -Required to run the database and API containers.
+* **[GitHub]*(https://git-scm.com/downloads)*** - To clone the repository 
+* **[Google Gemini API Key]*(https://aistudio.google.com/app/apikey)*** - Required for the AI agent to think and generate embeddings.
 
 ### Installation 
 
 1. **Clone the repository**
-```bash
 git clone https://github.com/sandip-magar/AI-AGENT-PROJECT.git
 cd AI-AGENT-PROJECT
-```
 
 2. **Create environment file:**
 ```bash
