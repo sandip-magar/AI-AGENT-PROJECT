@@ -74,7 +74,7 @@ Before you begin, ensure you have the following installed on your computer.
 
 1. **Clone the repository**
 git clone https://github.com/sandip-magar/AI-AGENT-PROJECT.git
-cd AI-AGENT-PROJECT
+- cd AI-AGENT-PROJECT
 
 2. **Create environment file:**
 ```bash
