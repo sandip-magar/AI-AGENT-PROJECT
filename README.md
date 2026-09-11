@@ -2,9 +2,11 @@
 
 An intelligent, stateful AI agent that can execute tools, maintain conversation memory, and perform real-time web searches, Built with FastAPI, LangGraph, PostgreSQL, and Docker.
 
-[![FastAPI](https://img.shields.io/badge/FastAPI=0.104.1-green.svg)](https://fastapi.tiangolo.com)
-[![Python](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads)
-[![Docker](https://img.shields.io/badge/docker-compose-3.8-blue.svg)](https://docs.docker.com/compose/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat&logo=fastapi)](https://fastapi.tiangolo.com)
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org)
+[![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=flat&logo=docker&logoColor=white)](https://www.docker.com)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white)](https://www.postgresql.org)
+[![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C?style=flat)](https://langchain-ai.github.io/langgraph/)
 
 ## Features
 
