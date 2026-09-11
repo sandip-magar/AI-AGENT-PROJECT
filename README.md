@@ -2,9 +2,9 @@
 
 An intelligent, stateful AI agent that can execute tools, maintain conversation memory, and perform real-time web searches, Built with FastAPI, LangGraph, PostgreSQL, and Docker.
 
-- [![FastAPI]*(https://img.shields.io/badge/FastAPI=0.104.1-green.svg)*] *(https://fastapi.tiangolo.com)
-- [![Python]*(https://img.shields.io/badge/python-3.11-blue.svg)*] *(https://www.python.org/downloads)
-- [![Docker]*(https://img.shields.io/badge/docker-compose-3.8-blue.svg)*] *(https://docs.docker.com/compose/)
+[![FastAPI](https://img.shields.io/badge/FastAPI=0.104.1-green.svg)](https://fastapi.tiangolo.com)
+[![Python](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads)
+[![Docker](https://img.shields.io/badge/docker-compose-3.8-blue.svg)](https://docs.docker.com/compose/)
 
 ## Features
 
