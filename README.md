@@ -24,10 +24,8 @@ This project implements a **RAG(Retrieval-Augmented Generation)** architecture w
 - **PostgreSQL + pgvector** for both relational data and vector embeddings 
 - **Gemini API** for LLM inference and embeddings
 
-```markdown
 ## Project Structure 
 ```
-
 ai-agent-project/
 ├── ai/                          # AI Agent Core Logic
 │   ├── init.py
@@ -61,6 +59,7 @@ ai-agent-project/
 ├── .env.example                 # Environment template
 ├── .gitignore                   # Git ignore rules
 └── README.md                    # Project documentation
+```
 
 ## Quick Start 
 
