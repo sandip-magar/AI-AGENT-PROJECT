@@ -40,7 +40,6 @@ ai-agent-project/
 │   └── chat_history.py          # Get/delete conversation history
 ── core/                        # Configuration & Security
 │   ├── init.py
-│   ├── config.py                # Environment variables
 │   ├── security.py              # JWT, password hashing
 │   └── extensions.py            # Logging & middleware
 ├── db/                          # Database Layer
