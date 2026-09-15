@@ -60,6 +60,8 @@ ai-agent-project/
 ├── .env.example                 # Environment template
 ├── .gitignore                   # Git ignore rules
 └── README.md                    # Project documentation
+|-- test_security.py             # Security test with Pytest
+|-- test_tools.py                # Tool test with pytest
 ```
 
 ## Quick Start 
