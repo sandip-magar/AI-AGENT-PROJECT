@@ -29,12 +29,7 @@ async def ask_ai(
             inputs,
             config=config
             )
-        print("FULL CONVERSATION HISTORY:")
-        for i, msg in enumerate(final_state["messages"]):
-            print(f"\n[Message:{i}] Type: {type(msg).__name__}")
-            print(f"Content: {msg.content}")
-            if hasattr(msg, "tool_calls") and msg.tool_calls:
-                print(f" Tool calls: {msg.tool_calls}")
+        
         #Extract the response from the final state
         raw_response = final_state["messages"][-1].content
         ai_response = str(raw_response)
