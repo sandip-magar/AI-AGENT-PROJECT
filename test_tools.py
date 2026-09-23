@@ -32,4 +32,3 @@ def test_search_web_success():
     #This should FAIL because max_result is less than 1 (ge=1)
     with pytest.raises(Exception):
         WebSearchInput(query="python", max_results=0)
-

@@ -212,6 +212,17 @@ For production deployment
 6. Configure database connection pooling 
 7. Set up monitoring and logging 
 
+### App Screenshots 
+
+**1. API Architecture Overvire**
+![swagger UI](screenshots/swagger_ui.png)
+
+**2. Secure JWT Authentication**
+![Login Token](screenshots/login_token.png)
+
+**3. AI Agent in Action**
+![AI Response](screenshots/ai_response.png)
+
 ## Author
 **Sandip Magar**
 [GitHub]*(https://github.com/sandip-magar)
