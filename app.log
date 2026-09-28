@@ -90,3 +90,4 @@ WHERE users.username = %(username_1)s
 (Background on this error at: https://sqlalche.me/e/20/f405)
 2026-08-23 13:59:19,422 -ERROR - HTTPException error occur on /users/register-user : Username already exists
 2026-08-23 14:01:05,021 -ERROR - HTTPException error occur on /users/log-in : Wrong Password or username
+2026-09-29 00:22:08,785 -ERROR - HTTPException error occur on /ai/ask-ai : Not authenticated
