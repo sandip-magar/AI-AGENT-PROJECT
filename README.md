@@ -215,13 +215,13 @@ For production deployment
 ### App Screenshots 
 
 **1. API Architecture Overvire**
-![swagger UI](screenshots/swagger_ui.png)
+![swagger UI](screenshots/swagger_ui.png.png)
 
 **2. Secure JWT Authentication**
-![Login Token](screenshots/login_token.png)
+![Login Token](screenshots/login_token.png.png)
 
 **3. AI Agent in Action**
-![AI Response](screenshots/ai_response.png)
+![AI Response](screenshots/ai_response.png.png)
 
 ## Author
 **Sandip Magar**
