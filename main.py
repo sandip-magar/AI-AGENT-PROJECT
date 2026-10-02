@@ -22,7 +22,7 @@ async def lifespan(app: FastAPI):
     from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
 
     DATABASE_URL = os.getenv("DATABASE_URL")
-    async with AsyncPostgresSaver.from_conn_string(DATABASE_URL + "?prepare_threshold=0") as checkpointer:
+    async with AsyncPostgresSaver.from_conn_string(DATABASE_URL) as checkpointer:
 
         await checkpointer.setup()
 
