@@ -32,7 +32,7 @@ async def ask_ai(
         
         #Extract the response from the final state
         raw_response = final_state["messages"][-1].content
-        ai_response = str(raw_response)
+        ai_response = raw_response[0]['text'] if type(raw_response) == list else str(raw_response)
 
         #Save to SQL Database
         user_msg = ChatMessage(role="user", content=payload.question, user_id=current_user.id)
