@@ -11,6 +11,7 @@ import os
 from dotenv import load_dotenv
 from ai.brain import create_agent_graph
 from contextlib import asynccontextmanager
+
 load_dotenv()
 
 checkpointer = None
@@ -20,9 +21,13 @@ async def lifespan(app: FastAPI):
     global checkpointer
     print("Starting up the application...")
     from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
+    from psycopg import AsyncConnection
+    from psycopg.rows import dict_row
 
     DATABASE_URL = os.getenv("DATABASE_URL")
-    async with AsyncPostgresSaver.from_conn_string(DATABASE_URL) as checkpointer:
+    async with await AsyncConnection.connect(DATABASE_URL, prepare_threshold=None, row_factory=dict) as conn:
+
+        checkpointer = AsyncPostgresSaver(conn)
 
         await checkpointer.setup()
 
